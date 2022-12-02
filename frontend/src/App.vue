@@ -1,17 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <EuropeMap @change-chart="changeChart" msg="Europe" />
+  <TestChart ref="childChart" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TestChart from "./components/TestChart.vue";
+import EuropeMap from "./components/EuropeMap.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    EuropeMap,
+    TestChart,
+  },
+  methods: {
+    changeChart(target) {
+      // console.log(target);
+      this.$refs.childChart.changeChart(target);
+    },
+  },
+};
 </script>
 
 <style>
