@@ -118,21 +118,15 @@ export default {
       const response = await axios.get(
         "http://localhost:1337/prices/all/" + target.getAttribute("id")
       );
-      console.log(this.chartData.datasets[0].data);
-      // this.chartData.datasets[0].data = response.data;
-      this.chartData.datasets[0].label = target.getAttribute("name");
-      for (let i = 0; i < 12; i++) {
-        let tmp =
-          response.data[i].value === undefined ? 0 : response.data[i].value;
-        this.chartData.datasets[0].data[i] = tmp;
-      }
-      // this.chartData.datasets[0].data[0] = response.data[0].value;
       console.log(response.data);
-      // debugger;
-
-      // this.set(this.data.datasets.data, response.data);
-      // this.data.datasets.data = response.data;
-      //  target.Id;
+      this.chartData.datasets[0].label = target.getAttribute("name");
+      let dictionary = Object.fromEntries(
+        response.data.map((x) => [x.year, x.value])
+      );
+      for (let i = 0; i < 12; i++) {
+        let tmp = dictionary[i + 2010];
+        this.chartData.datasets[0].data[i] = tmp === undefined ? 0 : tmp;
+      }
     },
   },
 };
