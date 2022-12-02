@@ -1,5 +1,5 @@
 <template>
-  <EuropeMap @change-chart="changeChart" msg="Europe" />
+  <EuropeMap @change-chart="changeChart" msg="Cene elektrike" />
   <TestChart ref="childChart" />
 </template>
 

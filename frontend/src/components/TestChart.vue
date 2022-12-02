@@ -87,7 +87,7 @@ export default {
         ],
         datasets: [
           {
-            label: "SLOVENIJA",
+            label: "Slovenia",
             backgroundColor: "#2c3e50",
             data: [
               0.1401, 0.1441, 0.1542, 0.161, 0.163, 0.1589, 0.1618, 0.1609,
@@ -95,7 +95,7 @@ export default {
             ],
           },
           // {
-          //   label: "SLOVENIJA",
+          //   label: "Slovenia",
           //   backgroundColor: "#2c3e50",
           //   data: [
           //     0.1401, 0.1441, 0.1542, 0.161, 0.163, 0.1589, 0.1618, 0.1609,
@@ -122,7 +122,9 @@ export default {
       // this.chartData.datasets[0].data = response.data;
       this.chartData.datasets[0].label = target.getAttribute("name");
       for (let i = 0; i < 12; i++) {
-        this.chartData.datasets[0].data[i] = response.data[i].value;
+        let tmp =
+          response.data[i].value === undefined ? 0 : response.data[i].value;
+        this.chartData.datasets[0].data[i] = tmp;
       }
       // this.chartData.datasets[0].data[0] = response.data[0].value;
       console.log(response.data);
@@ -135,3 +137,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+div {
+  margin-top: 10%;
+  width: 30%;
+  float: left;
+}
+</style>
