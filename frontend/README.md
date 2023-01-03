@@ -1,4 +1,4 @@
-# frontend
+# europe
 
 ## Project setup
 ```
