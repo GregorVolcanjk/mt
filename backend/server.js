@@ -10,6 +10,11 @@ app.get('/test', (req, res) => {
 	res.status(200).json({ success: true });
 });
 
+app.get('/electricityCountry/:geo', async (req, res) => {
+	values = await db.getElCountry(req.params['geo']);
+	res.status(200).json(values);
+})
+
 app.get('/testfunkcija/:household/:geo', async (req, res) => {
 	values = await db.testFunkcija(req.params['household'], req.params['geo']);
 	res.status(200).json(values);

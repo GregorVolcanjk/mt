@@ -1,0 +1,85 @@
+path {
+	fill: #4db6ac;
+	cursor: pointer;
+}
+path:hover {
+	opacity: 0.85;
+}
+.land {
+	fill-opacity: 1;
+	stroke: white;
+	stroke-opacity: 1;
+	stroke-width: 0.5;
+}
+
+.picker {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+}
+
+.right_graphs {
+    width: 50%;
+}
+
+
+.map {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.map_title {
+    height: 1rem;
+    margin: auto 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.navigation {
+    height: 3rem;
+    background-color: #4db6ac;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+  }

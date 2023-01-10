@@ -23,6 +23,13 @@ function getAllPrice(geo) {
 		.select('year', 'value');
 }
 
+function getElCountry(geo) {
+	return knex('household_by_fuel')
+		.where('geo', geo)
+		.andWhere('siec', 'E7000')
+		.select('year','value');
+}
+
 function getAllGasPrice(geo) {
 	return knex('gas_price_user')
 		.where('geo', geo)
@@ -164,4 +171,5 @@ module.exports = {
 	getEarnings,
 	getHouseholdSize,
 	getPopulation,
+	getElCountry
 };
