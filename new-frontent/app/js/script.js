@@ -164,6 +164,7 @@ $(document).ready(function() {
 			'http://localhost:1337/householdUsageCountryYear/HR/2015')
 
 		console.log(firstResponse.data)
+
 			tmp = [
 				parseFloat(JSON.stringify(firstResponse.data[1].value)),
 				parseFloat(JSON.stringify(firstResponse.data[2].value)),
@@ -329,21 +330,33 @@ $(document).ready(function() {
 		const secondResponse = await axios.get(
 			'http://localhost:1337/householdUsageCountryYear/'+ sessionStorage.getItem("secondId") +"/"+sessionStorage.getItem("selectedYear"))
 
-		
-			const tmp = [
+
+		let tmp = []
+		let mtp = []
+		if(Object.keys(firstResponse.data).length){
+ 		
+			 tmp = [
 				parseFloat(JSON.stringify(firstResponse.data[1].value)),
 				parseFloat(JSON.stringify(firstResponse.data[2].value)),
 				parseFloat(JSON.stringify(firstResponse.data[7].value)),
 				parseFloat(JSON.stringify(firstResponse.data[9].value)),
 				parseFloat(JSON.stringify(firstResponse.data[6].value)),
 			]
-			const mtp = [
+		} else {
+			 tmp = [0,0,0,0,0]
+		}
+
+		if(Object.keys(secondResponse.data).length){
+			 mtp = [
 				parseFloat(JSON.stringify(secondResponse.data[1].value)),
 				parseFloat(JSON.stringify(secondResponse.data[2].value)),
 				parseFloat(JSON.stringify(secondResponse.data[7].value)),
 				parseFloat(JSON.stringify(secondResponse.data[9].value)),
 				parseFloat(JSON.stringify(secondResponse.data[6].value)),
 			]
+		} else {
+			 mtp = [0,0,0,0,0]
+		}
 	
 
 		// Update values in dataset
@@ -357,6 +370,19 @@ $(document).ready(function() {
 		radarChart.update();
 	}
 
+	async function nekineki() {
+		$.ajax({
+			type: "get",
+			url: 'https://api.electricitymap.org/v3/power-breakdown/latest?lat=48.8566&lon=2.3522',
+			headers: { 'X-BLOBR-KEY': 'Tgzo0pg3vGIh82JKBqH94D4KQYR6aKl5' },
+			success: function(data)
+			{
+			 console.log(data);
+			}
+	  })
+	}
+
+
 	$('input[type=range]').on('input', function () {
 		console.log($(this).val());
 		$("#sliderVal").text($(this).val());
@@ -368,7 +394,13 @@ $(document).ready(function() {
 		updateElChart();
 		updateRadarChart();
 		window.scrollBy(0,210);
+
+
+
+		
 	})
+
+
 
 
 	//write jquery and javascript code that shows path id when mouse is over the path

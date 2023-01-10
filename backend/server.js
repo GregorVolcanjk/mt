@@ -3,12 +3,15 @@ const app = express();
 const db = require('./db/prices');
 const cors = require('cors');
 
+
 app.use(cors());
 
 app.get('/test', (req, res) => {
 	// res.status(200).send("test");
 	res.status(200).json({ success: true });
 });
+
+
 
 app.get('/electricityCountry/:geo', async (req, res) => {
 	values = await db.getElCountry(req.params['geo']);
