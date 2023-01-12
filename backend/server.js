@@ -179,4 +179,4 @@ app.get('/earnings/:geo/:year', async (req, res) => {
 
 //app.get('/prices/:household')
 
-app.listen(1337, () => console.log('Server is running on port 1337'));
+app.listen(1339, () => console.log('Server is running on port 1339'));

@@ -1,22 +1,13 @@
-$(document).ready(function() {
-	$("#SI").css("fill","#B55EAD")
-	$("#HR").css("fill","#B59D3A")
-
-	var switchState = false;
-	var firstId = "SI";
-	var secondId = "HR";
-	sessionStorage.setItem("firstId", firstId);
-	sessionStorage.setItem("secondId", secondId);
-
-	$(window).on("load",async function() {
-
+window.addEventListener("load",async function() {
+	//$(window).on("load",async function() {
+		console.log("drugic")
 		var ctx = document.getElementById('priceChart').getContext('2d');
 
 		var firstResponse = await axios.get(
-			"http://localhost:1337/prices/all/SI")
+			"http://localhost:1339/prices/all/SI")
 
 		var secondResponse = await axios.get(
-			"http://localhost:1337/prices/all/HR")
+			"http://localhost:1339/prices/all/HR")
 		
 		let dictionaryOne = Object.fromEntries(
 			firstResponse.data.map((x) => [x.year, x.value])
@@ -82,10 +73,10 @@ $(document).ready(function() {
 
 		
 		firstResponse = await axios.get(
-			"http://localhost:1337/electricityCountry/SI")
+			"http://localhost:1339/electricityCountry/SI")
 
 		secondResponse = await axios.get(
-			"http://localhost:1337/electricityCountry/HR")
+			"http://localhost:1339/electricityCountry/HR")
 
 		console.log(firstResponse.data)
 			dictionaryOne = Object.fromEntries(
@@ -158,10 +149,10 @@ $(document).ready(function() {
 		ctx = document.getElementById('radarChart').getContext('2d');
 
 		firstResponse = await axios.get(
-			'http://localhost:1337/householdUsageCountryYear/SI/2015')
+			'http://localhost:1339/householdUsageCountryYear/SI/2015')
 
 		secondResponse = await axios.get(
-			'http://localhost:1337/householdUsageCountryYear/HR/2015')
+			'http://localhost:1339/householdUsageCountryYear/HR/2015')
 
 		console.log(firstResponse.data)
 
@@ -228,10 +219,23 @@ $(document).ready(function() {
 				});
 	});
 
-
-
+$(document).ready(function() {
 	$("#SI").css("fill","#B55EAD")
 	$("#HR").css("fill","#B59D3A")
+
+	var switchState = false;
+	var firstId = "SI";
+	var secondId = "HR";
+	sessionStorage.setItem("firstId", firstId);
+	sessionStorage.setItem("secondId", secondId);
+	console.log("prvic")
+
+	
+
+
+
+	$("#SI").css("fill","rgba(255, 99, 132, 1)")
+	$("#HR").css("fill","rgba(54, 162, 235, 1)")
 
 
 
@@ -239,17 +243,18 @@ $(document).ready(function() {
 
 	async function updateLineChart() {
 		const ctx = document.getElementById('priceChart').getContext('2d');
-
+		ctx.canvas.parentNode.style.width = "500px";
+		ctx.canvas.parentNode.style.height = "500px";
 		// Get chart object
 		const priceChart = Chart.getChart(ctx);
 
 
 		var firstResponse = await axios.get(
-			"http://localhost:1337/prices/all/" + sessionStorage.getItem("firstId")
+			"http://localhost:1339/prices/all/" + sessionStorage.getItem("firstId")
 			)
 
 		var secondResponse = await axios.get(
-			"http://localhost:1337/prices/all/"+ sessionStorage.getItem("secondId")
+			"http://localhost:1339/prices/all/"+ sessionStorage.getItem("secondId")
 			)
 
 		let dictionaryOne = Object.fromEntries(
@@ -285,11 +290,11 @@ $(document).ready(function() {
 
 
 		var firstResponse = await axios.get(
-			"http://localhost:1337/electricityCountry/" + sessionStorage.getItem("firstId")
+			"http://localhost:1339/electricityCountry/" + sessionStorage.getItem("firstId")
 			)
 
 		var secondResponse = await axios.get(
-			"http://localhost:1337/electricityCountry/"+ sessionStorage.getItem("secondId")
+			"http://localhost:1339/electricityCountry/"+ sessionStorage.getItem("secondId")
 			)
 
 		let dictionaryOne = Object.fromEntries(
@@ -325,10 +330,10 @@ $(document).ready(function() {
 
 
 		const firstResponse = await axios.get(
-			'http://localhost:1337/householdUsageCountryYear/'+ sessionStorage.getItem("firstId") +"/"+sessionStorage.getItem("selectedYear"))
+			'http://localhost:1339/householdUsageCountryYear/'+ sessionStorage.getItem("firstId") +"/"+sessionStorage.getItem("selectedYear"))
 
 		const secondResponse = await axios.get(
-			'http://localhost:1337/householdUsageCountryYear/'+ sessionStorage.getItem("secondId") +"/"+sessionStorage.getItem("selectedYear"))
+			'http://localhost:1339/householdUsageCountryYear/'+ sessionStorage.getItem("secondId") +"/"+sessionStorage.getItem("selectedYear"))
 
 
 		let tmp = []
@@ -417,22 +422,22 @@ $(document).ready(function() {
 
 	$("path").click(function() {
 		if (switchState == false) {
-			$(`#${firstId}`).css("fill", "#4db6ac");
+			$(`#${firstId}`).css("fill", "#99c1de");
 			//$(this).css("fill", "#B55EAD");
 			$(this).css("fill","rgba(255, 99, 132, 1)")
 			
 			switchState = true;
 			firstId = $(this).attr("id");
 			sessionStorage.setItem("firstId", firstId);
-			$(".first_country").text(firstId)
+			$(".first_country").text($(this).attr("name"))
 		} else {
-			$(`#${secondId}`).css("fill", "#4db6ac");
+			$(`#${secondId}`).css("fill", "#99c1de");
 			//$(this).css("fill", "#B59D3A");
 			$(this).css("fill","rgba(54, 162, 235, 1)")
 			switchState = false;
 			secondId = $(this).attr("id");
 			sessionStorage.setItem("secondId", secondId);
-			$(".second_country").text(secondId)
+			$(".second_country").text($(this).attr("name"))
 		}
 	});
 
