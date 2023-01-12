@@ -204,6 +204,15 @@ window.addEventListener("load",async function() {
 			options = {
 				responsive: true,
 				maintainAspectRatio: false,
+				scales: {
+                    r: {
+						pointLabels: {
+							font: {
+							  size: 14
+							}
+						  }
+                    }
+                },
 				plugins: {
 					title: {
 						display: true,
