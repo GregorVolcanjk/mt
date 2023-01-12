@@ -243,8 +243,8 @@ $(document).ready(function() {
 
 	async function updateLineChart() {
 		const ctx = document.getElementById('priceChart').getContext('2d');
-		ctx.canvas.parentNode.style.width = "500px";
-		ctx.canvas.parentNode.style.height = "500px";
+		// ctx.canvas.parentNode.style.width = "500px";
+		// ctx.canvas.parentNode.style.height = "500px";
 		// Get chart object
 		const priceChart = Chart.getChart(ctx);
 
@@ -387,6 +387,10 @@ $(document).ready(function() {
 	  })
 	}
 
+	function fixCanvas() {
+		canvases = document.getElementsByClassName("canvasToResize");
+	}
+
 
 	$('input[type=range]').on('input', function () {
 		console.log($(this).val());
@@ -398,8 +402,9 @@ $(document).ready(function() {
 		updateLineChart();
 		updateElChart();
 		updateRadarChart();
-		window.scrollBy(0,210);
-
+		// document.getElementById("priceChart").scrollTo(0, 10000);
+		// window.scrollBy(0,210);
+		fixCanvas();
 
 
 		
