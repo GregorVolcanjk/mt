@@ -1,5 +1,11 @@
+
+html {
+	overflow-x: hidden;
+	--color-primary: #99c1de;
+}
+
 path {
-    fill: #99c1de;
+    fill: var(--color-primary);
     cursor: pointer;
 }
 path:hover {
@@ -50,13 +56,24 @@ body {
     padding: 0;
     width: 100vw;
 }
+
 .navigation {
-    height: 4rem;
-    background-color: #99c1de;
+    height: 5rem;
+    background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
+}
+
+footer {
+    height: 4rem;
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+	color: white;
 }
 
 .slider {
@@ -142,4 +159,5 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+	margin-bottom: 5vh;
 }

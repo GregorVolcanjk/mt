@@ -400,7 +400,7 @@ $(document).ready(function () {
         updateLineChart();
         updateElChart();
         updateRadarChart();
-        // document.getElementById("priceChart").scrollTo(0, 10000);
+        document.getElementById("priceChart").scrollIntoView();
         // window.scrollBy(0,210);
 		
     });
