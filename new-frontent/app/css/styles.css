@@ -1,145 +1,145 @@
 path {
-  fill: #99c1de;
-  cursor: pointer;
+    fill: #99c1de;
+    cursor: pointer;
 }
 path:hover {
-  opacity: 0.85;
+    opacity: 0.85;
 }
 
 .land {
-  fill-opacity: 1;
-  stroke: white;
-  stroke-opacity: 1;
-  stroke-width: 0.5;
+    fill-opacity: 1;
+    stroke: white;
+    stroke-opacity: 1;
+    stroke-width: 0.5;
 }
 
 .picker {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  /* gap: 2rem; */
-  align-items: center;
-  justify-content: center;
-  height: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    /* gap: 2rem; */
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
 }
 
 .right_graphs {
-  width: 50%;
+    width: 50%;
 }
 
 .map {
-  /* width: 700px; */
-  display: flex;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    /* width: 700px; */
+    display: flex;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .map_title {
-  height: 1rem;
-  margin: auto 0;
+    height: 1rem;
+    margin: auto 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
 }
 .navigation {
-  height: 4rem;
-  background-color: #99c1de;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
+    height: 4rem;
+    background-color: #99c1de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }
 
 .slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #e9e9e9;
-  outline: none;
-  opacity: 1;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #e9e9e9;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: rgb(225 29 72);
-  cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgb(225 29 72);
+    cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #bde0fe;
-  cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #bde0fe;
+    cursor: pointer;
 }
 
 .right_graphs {
-  position: relative;
-  width: 100vw;
-  display: grid;
-  padding: 0 15vw;
+    position: relative;
+    width: 100vw;
+    display: grid;
+    padding: 0 15vw;
 
-  grid-template-columns: 35vw;
-  grid-template-rows: auto;
+    grid-template-columns: 35vw;
+    grid-template-rows: auto;
 
-  /* grid-area: 10px; */
+    /* grid-area: 10px; */
 
-  grid-template-areas: 'priceChart elChart'
-  'radarChart radarChart';
+    grid-template-areas:
+        "priceChart elChart"
+        "radarChart radarChart";
 }
 
 #priceChart {
-	grid-area: priceChart;
-  /* width: 20vw; */
-  /* height: 12vw; */
-  width: 100%;
+    grid-area: priceChart;
+    /* width: 20vw; */
+    /* height: 12vw; */
+    width: 100%;
 }
 
 #elChart {
-	grid-area: elChart;
-  /* width: 20vw; */
-  /* height: 15vw; */
-  width: 100%;
+    grid-area: elChart;
+    /* width: 20vw; */
+    /* height: 15vw; */
+    width: 100%;
 }
 
 #radarChart {
-	grid-area: radarChart;
-	width: 100%;
-	/* width: 20vw; */
-	/* height: 20vw; */
-	/* height: 100%; */
+    grid-area: radarChart;
+    width: 100%;
+    /* width: 20vw; */
+    /* height: 20vw; */
+    /* height: 100%; */
 }
 .first_graph {
-	width: 100%;
+    width: 100%;
 }
 .second_graph {
-	width: 100%;
+    width: 100%;
 }
 .third_graph {
-	width: 100%;
-	margin-left: 50%;
-	height: 50vh;
+    width: 100%;
+    margin-left: 50%;
+    height: 50vh;
 }
 
-
 .IncomePercents {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
