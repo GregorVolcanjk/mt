@@ -277,13 +277,15 @@
 				<div></div>
 				Second country:<div class="second_country">Croatia</div>
 			</div>
-			<button
-				class="btn btn-success my-8 bg-rose-600 hover:bg-rose-700 h-10 px-5 transition-colors duration-150 rounded-full font-medium text-white"
-				id="go_search">Compare</button>
-			<div class="slidecontainer my-8">
-				Select the year for radar chart: <input type="range" min="2009" max="2020" value="2015"
-					class="slider bg-rose-600" id="myRange">
-				<p id="sliderVal">2015</p>
+			<div class="flex" id="compare_container">
+				<button
+					class="btn btn-success bg-rose-600 hover:bg-rose-700 h-10 px-5 transition-colors duration-150 rounded-full font-medium text-white"
+					id="go_search">Compare</button>
+				<div class="slidecontainer my-8">
+					Select the year for radar chart: <input type="range" min="2009" max="2020" value="2015"
+						class="slider bg-rose-600" id="myRange">
+					<p id="sliderVal">2015</p>
+				</div>
 			</div>
 			<!-- Selected: <div class="map_title"></div> -->
 			<div class="right_graphs">
@@ -328,11 +330,11 @@
 		</div>
 	</div>
 
+	<!-- <canvas id="line-chart"></canvas> -->
 
 	<footer>
 		Copyright © 2023 - Gregor, Gašper & Jure
 	</footer>
-	<!-- <canvas id="line-chart"></canvas> -->
 </body>
 
 </html>
