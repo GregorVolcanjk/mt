@@ -55,7 +55,7 @@ window.addEventListener("load",async function() {
 		plugins: {
             title: {
                 display: true,
-                text: 'Cena elektrike v eur/kwh'
+                text: 'Price of electricity eur/kwh'
             }
         }
 		};
@@ -133,7 +133,7 @@ window.addEventListener("load",async function() {
 				plugins: {
 					title: {
 						display: true,
-						text: 'Poraba elektrike v Gwh'
+						text: 'Elextricity usage in Gwh'
 					}
 				}
 				};
@@ -177,11 +177,11 @@ window.addEventListener("load",async function() {
 
 			var dataset = {
 				labels: [
-					'Elektrika',
-					'Naraven plin',
-					'Trdno biogorivo',
-					'Toplotna črpalka',
-					'Kurilno in dizelsko olje',
+					'Electricity',
+					'Natural gas',
+					'Primary solid biofuels',
+					'Ambient heat',
+					'Gas oil and diesel oil',
 				],
 				datasets: [
 					{
@@ -216,7 +216,7 @@ window.addEventListener("load",async function() {
 				plugins: {
 					title: {
 						display: true,
-						text: 'Poraba v srednjih gospodinjstvih v KTOE'
+						text: 'Consumption in medium households in KTOE'
 					}
 				}
 				};
