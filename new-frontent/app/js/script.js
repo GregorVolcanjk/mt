@@ -1,3 +1,58 @@
+async function getPercentageData(id, year) {
+		var salary;
+		await axios
+      .get("http://localhost:1339/earnings/" + id + "/" + year)
+      .then((response) => {
+        salary = response.data[0].value
+        console.log("Logging " + salary)
+      })
+
+	  var population 
+	  await axios
+      .get("http://localhost:1339/population/" + id + "/" + year)
+      .then(response => {
+        population = response.data[0].value
+        console.log("popilation " + population)
+      })
+
+	  var houseSize
+	  var numHouses
+	  await axios
+      .get("http://localhost:1339/householdSize/" + id + "/"+ year)
+      .then(response => {
+        houseSize = Math.ceil(response.data[0].value)
+        //console.log(this.houseSize)
+        numHouses = parseInt(population) / parseInt(houseSize)
+        //console.log(this.numHouses)
+      })
+
+	  var houseHoldUsage
+	  await axios
+      .get("http://localhost:1339/householdUsageCountryYear/" + id + "/"+ year)
+      .then(response => {
+        //console.log(response.data[1].value)
+        houseHoldUsage = response.data[1].value * 11630 * 1000
+        //console.log(this.houseHoldUsage + " kWh")
+      })
+
+	  var elPrice
+	  await axios
+      .get("http://localhost:1339/electricity/one/" + id + "/"+year+"/MSHH")
+      .then(response => {
+        elPrice = response.data[0].value
+        //console.log(this.price)
+      })
+
+	  console.log("household " + houseHoldUsage + " in numhouses "+numHouses)
+	  const porabaNaEnoGospodinjstvo = houseHoldUsage / numHouses
+      const cenaXporaba = (porabaNaEnoGospodinjstvo * elPrice).toFixed(2)
+      const procentPlace = ((cenaXporaba / salary)*100).toFixed(2)
+      console.log(porabaNaEnoGospodinjstvo)
+      console.log("Procent place" + procentPlace * 100)
+
+	  return [salary, cenaXporaba, procentPlace]
+}
+
 window.addEventListener("load", async function () {
     //$(window).on("load",async function() {
     console.log("drugic");
@@ -50,7 +105,7 @@ window.addEventListener("load", async function () {
     };
 
     var options = {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         plugins: {
             title: {
@@ -130,12 +185,12 @@ window.addEventListener("load", async function () {
     };
 
     options = {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         plugins: {
             title: {
                 display: true,
-                text: "Elextricity usage in Gwh",
+                text: "Electricity usage in Gwh",
             },
         },
     };
@@ -203,7 +258,7 @@ window.addEventListener("load", async function () {
     };
 
     options = {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         scales: {
             r: {
@@ -227,6 +282,18 @@ window.addEventListener("load", async function () {
         data: dataset,
         options: options,
     });
+
+	var countryData = await getPercentageData("SI",2015)
+	console.log(countryData)
+	$("#firstIncome").text(countryData[0] + "€")
+	$("#firstDwelling").text(countryData[1] + "€")
+	$("#firstPercent").text(countryData[2] + "%")
+
+
+	countryData = await getPercentageData("HR",2015)
+	$("#secondIncome").text(countryData[0] + "€")
+	$("#secondDwelling").text(countryData[1] + "€")
+	$("#secondPercent").text(countryData[2] + "%")
 });
 
 $(document).ready(function () {
@@ -390,16 +457,29 @@ $(document).ready(function () {
         });
     }
 
+
+
     $("input[type=range]").on("input", function () {
         console.log($(this).val());
         $("#sliderVal").text($(this).val());
     });
 
-    $("#go_search").on("click", function () {
+    $("#go_search").on("click", async function () {
         sessionStorage.setItem("selectedYear", $("input[type=range]").val());
         updateLineChart();
         updateElChart();
         updateRadarChart();
+		var countryData = await getPercentageData(sessionStorage.getItem("firstId"),sessionStorage.getItem("selectedYear"))
+		console.log(countryData)
+		$("#firstIncome").text(countryData[0] + "€")
+		$("#firstDwelling").text(countryData[1] + "€")
+		$("#firstPercent").text(countryData[2] + "%")
+
+
+		countryData = await getPercentageData(sessionStorage.getItem("secondId"),sessionStorage.getItem("selectedYear"))
+		$("#secondIncome").text(countryData[0] + "€")
+		$("#secondDwelling").text(countryData[1] + "€")
+		$("#secondPercent").text(countryData[2] + "%")
         document.getElementById("scroll").scrollIntoView();
         // window.scrollBy(0,210);
 		
@@ -436,3 +516,5 @@ $(document).ready(function () {
         }
     });
 });
+
+

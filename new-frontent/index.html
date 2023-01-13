@@ -290,42 +290,53 @@
 			<!-- Selected: <div class="map_title"></div> -->
 			<div class="right_graphs">
 				<div class="first_graph drop-shadow-lg rounded-md p-2 border-2">
+					
 					<canvas class="canvasToResize" id="priceChart"></canvas>
+					<p>The graph shows the value of electricity throughout the years for the two selected countries. Click on a country label to hide it's values.</p>
 				</div>
 				<div class="second_graph drop-shadow-lg rounded-md p-2 border-2">
 					<canvas class="canvasToResize" id="elChart"></canvas>
+					<p>The graph shows the usage of electricity throughout the years for the two selected countries. Click on a country label to hide it's values.</p>
 				</div>
 				<div class="third_graph drop-shadow-lg rounded-md p-2 border-2">
 					<canvas class="canvasToResize" id="radarChart"></canvas>
+					<p>This is a radar graph. It shows the usage values of five different types of fuels for the selected countries. Click on a country label to hide it's values.</p>
 				</div>
 			</div>
 		</div>
 
 	</div>
 
-	<div class="IncomePercents flex flex-row space-x-20 my-32">
-		<div class="first">
-			<div class="first_country">Slovenia:</div>
-			<div>
-				Average income: <div id="firstIncome"></div>
-			</div>
-			<div>
-				Average dwelling cost: <div id="firstDwelling"></div>
-			</div>
-			<div>
-				Percent of income: <div id="firstPercent"></div>
-			</div>
+	<div class="percentageStuff ">
+		
+		<div class="percentageInfo flex flex-column">
+			The data below shows the percentage of income spent by an average household on electricity for the selected year for the two selected countries.
+			The data is a rough estimate calculated from the data of average household size, average net salary, population, electricity usage and price of the selected countries.
 		</div>
-		<div class="second">
-			<div class="second_country">Croatia:</div>
-			<div>
-				Average income: <div id="secondIncome"></div>
+		<div class="IncomePercents flex flex-row space-x-20 my-32">
+			<div class="first">
+				<div class="first_country">Slovenia:</div>
+				<div>
+					Average income: <div id="firstIncome"></div>
+				</div>
+				<div>
+					Average dwelling cost: <div id="firstDwelling"></div>
+				</div>
+				<div>
+					Percent of income: <div id="firstPercent"></div>
+				</div>
 			</div>
-			<div>
-				Average dwelling cost: <div id="secondDwelling"></div>
-			</div>
-			<div>
-				Percent of income: <div id="secondPercent"></div>
+			<div class="second">
+				<div class="second_country">Croatia:</div>
+				<div>
+					Average income: <div id="secondIncome"></div>
+				</div>
+				<div>
+					Average dwelling cost: <div id="secondDwelling"></div>
+				</div>
+				<div>
+					Percent of income: <div id="secondPercent"></div>
+				</div>
 			</div>
 		</div>
 	</div>
