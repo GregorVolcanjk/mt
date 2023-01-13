@@ -145,8 +145,8 @@ window.addEventListener("load", async function () {
     tmp = [];
     mtp = [];
     for (let i = 0; i < 12; i++) {
-        tmp[i] = 0.01163 * dictionaryOne[i + 2009];
-        mtp[i] = 0.01163 * dictionaryTwo[i + 2009];
+        tmp[i] = 1000 * 0.01163 * dictionaryOne[i + 2009]
+        mtp[i] = 1000 * 0.01163 * dictionaryTwo[i + 2009];
     }
 
     console.log(tmp);
@@ -373,8 +373,8 @@ $(document).ready(function () {
         let tmp = [];
         let mtp = [];
         for (let i = 0; i < 12; i++) {
-            tmp[i] = 0.01163 * dictionaryOne[i + 2009];
-            mtp[i] = 0.01163 * dictionaryTwo[i + 2009];
+            tmp[i] = 1000 * 0.01163 * dictionaryOne[i + 2009];
+            mtp[i] = 1000 * 0.01163 * dictionaryTwo[i + 2009];
         }
 
         // Update values in dataset
@@ -480,7 +480,7 @@ $(document).ready(function () {
 		$("#secondIncome").text(countryData[0] + "€")
 		$("#secondDwelling").text(countryData[1] + "€")
 		$("#secondPercent").text(countryData[2] + "%")
-        document.getElementById("scroll").scrollIntoView();
+        document.getElementById("takuja").scrollIntoView({ behavior: 'smooth'});
         // window.scrollBy(0,210);
 		
     });

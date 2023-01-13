@@ -2,7 +2,12 @@
 html {
 	overflow-x: hidden;
 	--color-primary: #99c1de;
+    
 }
+
+html::-webkit-scrollbar {
+    display: none;
+  }
 
 path {
     fill: var(--color-primary);
@@ -187,6 +192,7 @@ footer {
     height: 100%;
     text-align: center;
     margin-left: 3%;
+    font-size: 1.2rem;
 }
 
 .IncomePercents {
@@ -194,4 +200,6 @@ footer {
     align-items: center;
     justify-content: center;
 	margin: 5vh 0;
+    font-size: 1.2rem;
+    margin-left: 5%;
 }
